@@ -11,7 +11,7 @@ from MyStaticMplCanvas import MyStaticMplCanvas
 from ProblemWidget import ProblemWidget
 from BoundsWidget import BoundsWidget
 from SolveWidget import SolveWidget
-
+from PlannersWidget import PlannersWidget
 
 class MainWidget(QtGui.QWidget):
      """docstring for MainWidget"""
@@ -19,13 +19,13 @@ class MainWidget(QtGui.QWidget):
         super(MainWidget, self).__init__()
         self.mplViewer = MyStaticMplCanvas()
         self.problemWidget = ProblemWidget()
-        #self.plannerWidget = PlannerWidget()
+        self.plannerWidget = PlannersWidget()
         self.boundsWidget = BoundsWidget()
         self.solveWidget = SolveWidget()
         #self.solveWidget.setSizePolicy(QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Fixed))
         tabWidget = QtGui.QTabWidget()
         tabWidget.addTab(self.problemWidget, "Problem")
-        #tabWidget.addTab(self.plannerWidget, "Planner")
+        tabWidget.addTab(self.plannerWidget, "Planner")
         tabWidget.addTab(self.boundsWidget, "Bounding box")
         tabWidget.setSizePolicy(QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed))
         layout = QtGui.QGridLayout()
