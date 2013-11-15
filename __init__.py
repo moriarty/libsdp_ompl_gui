@@ -16,5 +16,5 @@ from SolveWidget import SolveWidget
 from BoundsWidget import BoundsWidget
 from MainWidget import MainWidget
 from MPLViewer import MPLViewer
-# TODO from PlannersWidget import PlannersWidget
+from PlannersWidget import PlannersWidget
 from ProblemWidget import ProblemWidget
