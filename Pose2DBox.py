@@ -7,6 +7,7 @@
 """
 # import statement
 from PyQt4 import QtCore, QtGui
+from PyQt4.QtCore import pyqtSignal as Signal
 
 # Pose2DBox class
 class Pose2DBox(QtGui.QGroupBox):
