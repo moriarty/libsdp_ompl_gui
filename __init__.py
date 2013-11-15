@@ -14,7 +14,7 @@ from MyStaticMplCanvas import MyStaticMplCanvas
 from Pose2DBox import Pose2DBox
 from SolveWidget import SolveWidget
 from BoundsWidget import BoundsWidget
-# TODO from MainWidget import MainWidget
+from MainWidget import MainWidget
 from MPLViewer import MPLViewer
 # TODO from PlannersWidget import PlannersWidget
 from ProblemWidget import ProblemWidget
