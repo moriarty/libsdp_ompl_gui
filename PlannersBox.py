@@ -15,7 +15,7 @@ class PlannersBox(QtGui.QGroupBox):
         super(PlannersBox, self).__init__(title)
         
         # RRT, PDST 
-        self.rrtCheck = QtGui.QCheckBox('RRT')
+        self.rrtCheck = QtGui.QCheckBox('RRT (default)')
         self.rrtCheck.setChecked(True)
         self.pdstCheck = QtGui.QCheckBox('PDST')
         self.pdstCheck.setChecked(False)
@@ -35,25 +35,31 @@ class PlannersBox(QtGui.QGroupBox):
         self.setLayout(layout)
 
         # Connect buttons to insure at least one is selected.
-        self.rrtCheck.stateChanged.connect(self.defaultPlanner)
-        self.pdstCheck.stateChanged.connect(self.defaultPlanner)
-        self.estCheck.stateChanged.connect(self.defaultPlanner)
-        self.kpiece1Check.stateChanged.connect(self.defaultPlanner)
+        self.rrtCheck.stateChanged.connect(self.ensurePlanner)
+        self.pdstCheck.stateChanged.connect(self.ensurePlanner)
+        self.estCheck.stateChanged.connect(self.ensurePlanner)
+        self.kpiece1Check.stateChanged.connect(self.ensurePlanner)
 
-
-    def defaultPlanner(self):
-        """Sets the defaultPlanner RRT if none selected"""
-        isPlannerChecked = False
-        if self.rrtCheck.checkState():
-            isPlannerChecked = True
-        elif self.pdstCheck.checkState():
-            isPlannerChecked = True
-        elif self.estCheck.checkState():
-            isPlannerChecked = True
-        elif self.kpiece1Check.checkState():
-            isPlannerChecked = True
+    def ensurePlanner(self):
+        """
+        Note: I've tried this many different ways, but there is still a bug.
+        Double checking RRT does not recheck RRT, 
+        """
+        if self.rrtCheck.checkState(): 
+            pass
+        elif self.pdstCheck.checkState(): 
+            pass
+        elif self.estCheck.checkState(): 
+            pass
+        elif self.kpiece1Check.checkState(): 
+            pass
         else:
-            self.rrtCheck.setChecked(True)
+            self.setDefaults()
 
-
+    def setDefaults(self):
+        """Sets the RRT to checked"""
+        self.rrtCheck.setChecked(True)
+        self.pdstCheck.setChecked(False)
+        self.estCheck.setChecked(False)
+        self.kpiece1Check.setChecked(False)
 
