@@ -50,7 +50,7 @@ class ControlBox(QtGui.QGroupBox):
         self.setLayout(layout)
 
     def setTimeLimit(self, value=5.0):
-        self.timeLimit(value)
+        self.timeLimit.setValue(value)
 
     def setPropagation(self, value=0.2):
         self.propagation.setValue(value)
