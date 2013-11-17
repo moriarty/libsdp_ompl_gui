@@ -51,6 +51,10 @@ class BoundsBox(QtGui.QGroupBox):
         self.posx.setValue(value[0])
         self.posy.setValue(value[1])
 
+    def getBounds(self):
+        """ returns bounds: [x , y] """
+        return [self.posx.value(), self.posy.value()]
+
     def boundsChange(self, value):
         """Emits ValueChanged Signal [ x, y]"""
         self.valueChanged.emit([ self.posx.value(), self.posy.value() ])
