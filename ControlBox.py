@@ -49,6 +49,18 @@ class ControlBox(QtGui.QGroupBox):
         layout.addWidget(self.maxControlDuration, 2, 2)
         self.setLayout(layout)
 
+    def getTimeLimit(self):
+        return self.timeLimit.value()
+
+    def getPropagation(self):
+        return self.propagation.value()
+
+    def getMinControlDuration(self):
+        return self.minControlDuration.value()
+
+    def getMaxControlDuration(self):
+        return self.maxControlDuration.value()
+
     def setTimeLimit(self, value=5.0):
         self.timeLimit.setValue(value)
 
