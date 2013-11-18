@@ -7,7 +7,7 @@
 """
 
 from PyQt4 import QtGui
-from MPLViewer import MPLViewer
+from plot_view import MPLViewer
 from ProblemWidget import ProblemWidget
 from BoundsWidget import BoundsWidget
 from SolveWidget import SolveWidget
