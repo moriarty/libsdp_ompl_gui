@@ -11,7 +11,7 @@ from plot_view import MPLViewer
 from problem_tab import ProblemWidget
 from bounds_tab import BoundsWidget
 from SolveWidget import SolveWidget
-from PlannersWidget import PlannersWidget
+from planner_tab import PlannersWidget
 
 class MainWidget(QtGui.QWidget):
      """docstring for MainWidget"""
