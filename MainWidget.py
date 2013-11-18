@@ -9,7 +9,7 @@
 from PyQt4 import QtGui
 from plot_view import MPLViewer
 from problem_tab import ProblemWidget
-from BoundsWidget import BoundsWidget
+from bounds_tab import BoundsWidget
 from SolveWidget import SolveWidget
 from PlannersWidget import PlannersWidget
 

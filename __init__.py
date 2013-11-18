@@ -8,12 +8,12 @@ __all__=['BoundsBox.py', 'MplCanvas', 'MyStaticMplCanvas',
          'MainWidget', 'MPLViewer', 'PlannersWidget', 
          'ProblemWidget']
 
-from BoundsBox import BoundsBox
+#from bounds_tab import BoundsBox
 #from MplCanvas import MplCanvas
 #from MyStaticMplCanvas import MyStaticMplCanvas
 from Pose2DBox import Pose2DBox
 from SolveWidget import SolveWidget
-from BoundsWidget import BoundsWidget
+from bounds_tab import BoundsWidget
 from MainWidget import MainWidget
 from plot_view import MPLViewer
 from PlannersWidget import PlannersWidget

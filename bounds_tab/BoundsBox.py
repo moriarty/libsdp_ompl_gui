@@ -7,7 +7,7 @@
 """
 # import statement
 from PyQt4 import QtCore, QtGui
-from Pose2DBox import Pose2DBox
+from .. import Pose2DBox
 from PyQt4.QtCore import pyqtSignal as Signal
 
 # BoundsBox class
