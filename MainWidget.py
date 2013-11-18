@@ -7,7 +7,7 @@
 """
 
 from PyQt4 import QtGui
-from MyStaticMplCanvas import MyStaticMplCanvas
+from MPLViewer import MPLViewer
 from ProblemWidget import ProblemWidget
 from BoundsWidget import BoundsWidget
 from SolveWidget import SolveWidget
@@ -17,7 +17,7 @@ class MainWidget(QtGui.QWidget):
      """docstring for MainWidget"""
      def __init__(self):
         super(MainWidget, self).__init__()
-        self.mplViewer = MyStaticMplCanvas()
+        self.mplViewer = MPLViewer()
         self.problemWidget = ProblemWidget()
         self.plannersWidget = PlannersWidget()
         self.boundsWidget = BoundsWidget()
