@@ -9,7 +9,7 @@
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import pyqtSignal as Signal
-from Pose2DBox import Pose2DBox
+from .. import Pose2DBox
 
 class ProblemWidget(QtGui.QWidget):
     """docstring for ProblemWidget"""

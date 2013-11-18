@@ -17,4 +17,4 @@ from BoundsWidget import BoundsWidget
 from MainWidget import MainWidget
 from plot_view import MPLViewer
 from PlannersWidget import PlannersWidget
-from ProblemWidget import ProblemWidget
+from problem_tab import ProblemWidget
