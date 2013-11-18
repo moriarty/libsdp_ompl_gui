@@ -23,18 +23,17 @@ class ProblemWidget(QtGui.QWidget):
         self.robotTypeSelect.addItem("K.CarDemo2D")
         self.robotTypeSelect.setMaximumSize(200, 2000)
 
+        self.startPose = Pose2DBox('Start pose')
+        self.goalPose = Pose2DBox('Goal pose')
 
-        self.startPose2D = Pose2DBox('Start pose')
-        self.goalPose2D = Pose2DBox('Goal pose')
-
-        startGoal2D = QtGui.QWidget()
+        startGoal = QtGui.QWidget()
         layout = QtGui.QGridLayout()
-        layout.addWidget(self.startPose2D, 0, 0, 1, 2)
-        layout.addWidget(self.goalPose2D, 1, 0, 1 ,2)
-        startGoal2D.setLayout(layout)
+        layout.addWidget(self.startPose, 0, 0, 1, 2)
+        layout.addWidget(self.goalPose, 1, 0, 1 ,2)
+        startGoal.setLayout(layout)
 
         self.poses = QtGui.QStackedWidget()
-        self.poses.addWidget(startGoal2D)
+        self.poses.addWidget(startGoal)
 
         layout = QtGui.QGridLayout()
         layout.addWidget(robotTypeLabel, 0, 0)
@@ -42,18 +41,18 @@ class ProblemWidget(QtGui.QWidget):
         layout.addWidget(self.poses, 1, 0, 1, 2)
         self.setLayout(layout)
 
-        self.startPose2D.valueChanged.connect(self.startPoseChange)
-        self.goalPose2D.valueChanged.connect(self.goalPoseChange)
+        self.startPose.valueChanged.connect(self.startPoseChange)
+        self.goalPose.valueChanged.connect(self.goalPoseChange)
 
-    def setStartPose(self, value):
-        self.startPose2D.setPose(value)
-    def setGoalPose(self, value):
-        self.goalPose2D.setPose(value)
+    def setStartPose(self, x=0.0, y=0.0, yaw=0.0):
+        self.startPose.setPose(x=x, y=y, yaw=yaw)
+    def setGoalPose(self, x=0.0, y=0.0, yaw=0.0):
+        self.goalPose.setPose(x=x, y=y, yaw=yaw)
 
     def getStartPose(self):
-        return self.startPose3D.getPose() if self.poses.currentIndex()==0 else self.startPose2D.getPose()
+        return self.startPose.getPose()
     def getGoalPose(self):
-        return self.goalPose3D.getPose() if self.poses.currentIndex()==0 else self.goalPose2D.getPose()
+        return self.goalPose.getPose()
 
     def startPoseChange(self, value):
         self.startChanged.emit(value)
