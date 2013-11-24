@@ -17,3 +17,4 @@ from MainWidget import MainWidget
 from plot_view import MPLViewer
 from planner_tab import PlannersWidget
 from problem_tab import ProblemWidget
+from obstacle_tab import ObstacleWidget

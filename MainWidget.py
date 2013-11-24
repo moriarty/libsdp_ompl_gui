@@ -12,6 +12,7 @@ from problem_tab import ProblemWidget
 from bounds_tab import BoundsWidget
 from SolveWidget import SolveWidget
 from planner_tab import PlannersWidget
+from obstacle_tab import ObstacleWidget
 
 class MainWidget(QtGui.QWidget):
      """docstring for MainWidget"""
@@ -20,6 +21,7 @@ class MainWidget(QtGui.QWidget):
         self.mplViewer = MPLViewer()
         self.problemWidget = ProblemWidget()
         self.plannersWidget = PlannersWidget()
+        self.obstacleWidget = ObstacleWidget()
         self.boundsWidget = BoundsWidget()
         self.solveWidget = SolveWidget()
         #self.solveWidget.setSizePolicy(QtGui.QSizePolicy(QtGui.QSizePolicy.Preferred, QtGui.QSizePolicy.Fixed))
@@ -27,7 +29,8 @@ class MainWidget(QtGui.QWidget):
         tabWidget.addTab(self.problemWidget, "Problem")
         tabWidget.addTab(self.plannersWidget, "Planners")
         tabWidget.addTab(self.boundsWidget, "Bounding box")
-        tabWidget.setSizePolicy(QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed))
+        tabWidget.addTab(self.obstacleWidget, "Obstacle")
+        #tabWidget.setSizePolicy(QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed))
         layout = QtGui.QGridLayout()
         layout.addWidget(self.mplViewer, 0, 0, 2, 1)
         layout.addWidget(tabWidget, 0, 1)
