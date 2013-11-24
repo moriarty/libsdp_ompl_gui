@@ -3,7 +3,7 @@
 # Title: Square
 # Description: A square obstacle
 # Author: @moriarty, @amdshameer
-# Licence: 
+# Licence:
 """
 # import statement
 from PyQt4 import QtCore, QtGui
@@ -14,40 +14,34 @@ class Square(QtGui.QGroupBox):
     """
     Simple Square obstacle
     """
-    valueChanged = Signal(list)
+    sizeChanged = Signal(list)
 
     def __init__(self, title):
         super(Square, self).__init__(title)
-        sizeLabel = QtGui.QLabel('Size')
+        sizeLabel = QtGui.QLabel('Square Size')
         
         self.size = QtGui.QDoubleSpinBox()
         self.size.setRange(1, 10)
         self.size.setSingleStep(0.5)
 
         layout = QtGui.QGridLayout()
-        layout.addWidget(xlabel, 1, 0, QtCore.Qt.AlignRight)
-        layout.addWidget(ylabel, 2, 0, QtCore.Qt.AlignRight)
-        layout.addWidget(self.posx, 1, 1)
-        layout.addWidget(self.posy, 2, 1)
+        layout.addWidget(sizeLabel, 1, 0, QtCore.Qt.AlignRight)
+        layout.addWidget(self.size, 1, 1)
         self.setLayout(layout)
 
-        ## Connect a change in posx or posy to boundsChange()
-        self.posx.valueChanged.connect(self.boundsChange)
-        self.posy.valueChanged.connect(self.boundsChange)
+        ## Connect a change in size to sizeChange()
+        self.size.valueChanged.connect(self.sizeChange)
 
-
-    def setBounds(self, value):
+    def setSize(self, value):
         """setBounds
-
-        allows connections to set bounds 
+        allows connections to set bounds
         """
-        self.posx.setValue(value[0])
-        self.posy.setValue(value[1])
+        self.size.setValue(value[0])
 
-    def getBounds(self):
-        """ returns bounds: [x , y] """
-        return [self.posx.value(), self.posy.value()]
+    def getSize(self):
+        """ returns bounds: [ size ] """
+        return [self.size.value()]
 
-    def boundsChange(self, value):
-        """Emits ValueChanged Signal [ x, y]"""
-        self.valueChanged.emit([ self.posx.value(), self.posy.value() ])
+    def sizeChange(self, value):
+        """Emits ValueChanged Signal [ size]"""
+        self.valueChanged.emit(self.getSize())
