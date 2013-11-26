@@ -1,1 +1,1 @@
-from BoundsWidget import BoundsWidget
+from ompl_gui.bounds_tab.BoundsWidget import BoundsWidget

@@ -44,10 +44,9 @@ class Pose2DBox(QtGui.QGroupBox):
         self.yaw.valueChanged.connect(self.poseChange)
 
     def setPose(self, x=0, y=0, yaw=0):
-        state = value()
         self.posx.setValue(x)
         self.posy.setValue(y)
-        self.yaw.setValue(yaw * 180 / pi)
+        self.yaw.setValue(yaw * 180 / np.pi)
 
     def getPose(self):
         x = self.posx.value()

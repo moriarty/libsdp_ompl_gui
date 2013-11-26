@@ -7,7 +7,6 @@
 """
 # import statement
 from PyQt4 import QtCore, QtGui
-from PyQt4.QtCore import pyqtSignal as Signal
 
 class ControlBox(QtGui.QGroupBox):
     """docstring for ControlBox"""

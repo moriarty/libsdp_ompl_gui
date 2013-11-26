@@ -1,1 +1,1 @@
-from PlannersWidget import PlannersWidget
+from ompl_gui.planner_tab.PlannersWidget import PlannersWidget

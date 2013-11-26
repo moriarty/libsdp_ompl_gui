@@ -7,7 +7,6 @@
 """
 # import statement
 from PyQt4 import QtCore, QtGui
-from .. import Pose2DBox
 from PyQt4.QtCore import pyqtSignal as Signal
 
 # BoundsBox class
@@ -38,7 +37,6 @@ class BoundsBox(QtGui.QGroupBox):
         layout.addWidget(self.posy, 2, 1)
         self.setLayout(layout)
 
-        ## Connect a change in posx or posy to boundsChange()
         self.posx.valueChanged.connect(self.boundsChange)
         self.posy.valueChanged.connect(self.boundsChange)
 
@@ -55,7 +53,7 @@ class BoundsBox(QtGui.QGroupBox):
         """ returns bounds: [x , y] """
         return [self.posx.value(), self.posy.value()]
 
-    def boundsChange(self, value):
+    def boundsChange(self):
         """Emits ValueChanged Signal [ x, y]"""
         self.valueChanged.emit([ self.posx.value(), self.posy.value() ])
 

@@ -8,9 +8,9 @@
 
 from PyQt4 import QtGui, QtCore
 
-from PlannersBox import PlannersBox
-from ControlBox import ControlBox
-from OptionBox import OptionBox
+from ompl_gui.planner_tab.PlannersBox import PlannersBox
+from ompl_gui.planner_tab.ControlBox import ControlBox
+from ompl_gui.planner_tab.OptionBox import OptionBox
 
 class PlannersWidget(QtGui.QWidget):
     """PlannersWidget

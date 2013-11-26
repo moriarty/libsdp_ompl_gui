@@ -6,8 +6,7 @@
 # Licence: 
 """
 # import statement
-from PyQt4 import QtCore, QtGui
-from PyQt4.QtCore import pyqtSignal as Signal
+from PyQt4 import QtGui
 
 class PlannersBox(QtGui.QGroupBox):
     """docstring for PlannersBox"""
