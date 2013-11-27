@@ -12,6 +12,7 @@ from ompl_gui.MainWidget import MainWidget
 from ompl_gui.plot_view import MPLViewer
 from ompl_gui.planner_tab import PlannersWidget
 from ompl_gui.problem_tab import ProblemWidget
+from ompl_gui.obstacle_tab import ObstacleWidget
 
 __all__ = ['Pose2DBox', 'SolveWidget', 'BoundsWidget', 
            'MainWidget', 'MPLViewer', 'PlannersWidget', 

@@ -12,6 +12,7 @@ from ompl_gui.problem_tab import ProblemWidget
 from ompl_gui.bounds_tab import BoundsWidget
 from ompl_gui.SolveWidget import SolveWidget
 from ompl_gui.planner_tab import PlannersWidget
+from ompl_gui.obstacle_tab import ObstacleWidget
 
 class MainWidget(QtGui.QWidget):
     """Main Widget
@@ -23,6 +24,7 @@ class MainWidget(QtGui.QWidget):
         self.mplViewer = MPLViewer()
         self.problemWidget = ProblemWidget()
         self.plannersWidget = PlannersWidget()
+        self.obstacleWidget = ObstacleWidget()
         self.boundsWidget = BoundsWidget()
         self.solveWidget = SolveWidget()
         
@@ -30,8 +32,9 @@ class MainWidget(QtGui.QWidget):
         tabWidget.addTab(self.problemWidget, "Problem")
         tabWidget.addTab(self.plannersWidget, "Planners")
         tabWidget.addTab(self.boundsWidget, "Bounding box")
-        tabWidget.setSizePolicy(QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, 
-                                                  QtGui.QSizePolicy.Fixed))
+        tabWidget.addTab(self.obstacleWidget, "Obstacle")
+        tabWidget.setTabEnabled(3, False)
+
         layout = QtGui.QGridLayout()
         layout.addWidget(self.mplViewer, 0, 0, 2, 1)
         layout.addWidget(tabWidget, 0, 1)

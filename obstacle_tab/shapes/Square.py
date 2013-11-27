@@ -1,0 +1,47 @@
+#!/usr/bin/env python
+"""
+# Title: Square
+# Description: A square obstacle
+# Author: @moriarty, @amdshameer
+# Licence:
+"""
+# import statement
+from PyQt4 import QtCore, QtGui
+from PyQt4.QtCore import pyqtSignal as Signal
+
+# Square class
+class Square(QtGui.QGroupBox):
+    """
+    Simple Square obstacle
+    """
+    sizeChanged = Signal(list)
+
+    def __init__(self, title):
+        super(Square, self).__init__(title)
+        sizeLabel = QtGui.QLabel('Square Size')
+        
+        self.size = QtGui.QDoubleSpinBox()
+        self.size.setRange(1, 10)
+        self.size.setSingleStep(0.5)
+
+        layout = QtGui.QGridLayout()
+        layout.addWidget(sizeLabel, 1, 0, QtCore.Qt.AlignRight)
+        layout.addWidget(self.size, 1, 1)
+        self.setLayout(layout)
+
+        ## Connect a change in size to sizeChange()
+        self.size.valueChanged.connect(self.sizeChange)
+
+    def setSize(self, value):
+        """setBounds
+        allows connections to set bounds
+        """
+        self.size.setValue(value[0])
+
+    def getSize(self):
+        """ returns bounds: [ size ] """
+        return [self.size.value()]
+
+    def sizeChange(self, value):
+        """Emits ValueChanged Signal [ size]"""
+        self.valueChanged.emit(self.getSize())
