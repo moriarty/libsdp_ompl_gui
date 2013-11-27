@@ -8,6 +8,13 @@
 # import statement
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import pyqtSignal as Signal
+import numpy as np
+
+def xy_from_htheta(h, theta):
+    rtheta = theta*np.pi/180
+    x = np.cos(rtheta)/h
+    y = np.sin(rtheta)/h
+    return (x, y)
 
 # Square class
 class Square(QtGui.QGroupBox):
@@ -31,6 +38,16 @@ class Square(QtGui.QGroupBox):
 
         ## Connect a change in size to sizeChange()
         self.size.valueChanged.connect(self.sizeChange)
+
+    def setVertices(self, xcentre=0.0,ycentre=0.0, theta=0.0, size=1):
+        angles = np.array([45, 135, 225, 315]) + theta
+        distance = np.sqrt(2*size**2)/2
+        xy_centre = np.array([[xcentre],[ycentre]])
+        x, y = xy_from_htheta(distance, angles) + xy_centre
+        verts = zip(x,y)
+        verts.append(verts[0])
+        self.vertices = verts
+
 
     def setSize(self, value):
         """setBounds

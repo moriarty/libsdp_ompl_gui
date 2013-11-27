@@ -8,6 +8,8 @@
 
 from PyQt4.QtCore import pyqtSignal as Signal
 from ompl_gui.plot_view.MplCanvas import MplCanvas
+from matplotlib.path import Path
+import matplotlib.patches as patches
 import numpy as np
 
 class MPLViewer(MplCanvas):
@@ -15,10 +17,29 @@ class MPLViewer(MplCanvas):
     boundLowChanged = Signal(list)
     boundHighChanged = Signal(list)
 
+    verts = [
+        (5., 5.), # left, bottom
+        (5., 8.), # left, top
+        (8., 8.), # right, top
+        (8., 5.), # right, bottom
+        (5., 5.), # ignored
+        ]
+
+    codes = [Path.MOVETO,
+        Path.LINETO,
+        Path.LINETO,
+        Path.LINETO,
+        Path.CLOSEPOLY,
+        ]
+
     def compute_initial_figure(self):
         t = np.arange(0.0, 3.0, 0.01)
         s = np.sin(2*np.pi*t)
         self.axes.plot(t, s)
+        path = Path(self.verts, self.codes)
+        patch = patches.PathPatch(path, facecolor='orange', lw=2)
+        self.axes.add_patch(patch)
+        self.axes.axis([-10,10,-10,10])
 
     def refresh(self):
         self.boundsChanged()
