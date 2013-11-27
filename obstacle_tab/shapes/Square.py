@@ -8,6 +8,7 @@
 # import statement
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import pyqtSignal as Signal
+from matplotlib.path import Path
 import numpy as np
 
 def xy_from_htheta(h, theta):
@@ -22,6 +23,13 @@ class Square(QtGui.QGroupBox):
     Simple Square obstacle
     """
     sizeChanged = Signal(list)
+
+    self.codes = [Path.MOVETO,
+        Path.LINETO,
+        Path.LINETO,
+        Path.LINETO,
+        Path.CLOSEPOLY,
+        ]
 
     def __init__(self, title):
         super(Square, self).__init__(title)
@@ -48,6 +56,11 @@ class Square(QtGui.QGroupBox):
         verts.append(verts[0])
         self.vertices = verts
 
+    def getVertices(self):
+        return self.vertices
+
+    def getPathCodes(self):
+        return self.codes
 
     def setSize(self, value):
         """setBounds
