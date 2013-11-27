@@ -18,13 +18,17 @@ class ObstacleWidget(QtGui.QWidget):
         super(ObstacleWidget, self).__init__()
         self.obstacleTypeLabel = QtGui.QLabel('Obstacle Shape')
         self.obstacleTypeSelect = QtGui.QComboBox()
+        self.obstacleTypeSelect.setEnabled(False)
         
         self.obstaclePose = Pose2DBox('Obstacle Centre')
+        self.obstaclePose.posx.setEnabled(False)
+        self.obstaclePose.posy.setEnabled(False)
         self.obstaclePose.yaw.setEnabled(False)
 
         self.obstacle = self.obstacleTypeSelect
 
         self.applyButton = QtGui.QPushButton('Apply')
+        self.applyButton.setEnabled(False)
 
         layout = QtGui.QGridLayout()
         layout.addWidget(self.obstacleTypeLabel, 0,0)

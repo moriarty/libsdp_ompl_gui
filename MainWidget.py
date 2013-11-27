@@ -30,6 +30,7 @@ class MainWidget(QtGui.QWidget):
         tabWidget.addTab(self.plannersWidget, "Planners")
         tabWidget.addTab(self.boundsWidget, "Bounding box")
         tabWidget.addTab(self.obstacleWidget, "Obstacle")
+        tabWidget.setTabEnabled(3, False)
         #tabWidget.setSizePolicy(QtGui.QSizePolicy(QtGui.QSizePolicy.Fixed, QtGui.QSizePolicy.Fixed))
         layout = QtGui.QGridLayout()
         layout.addWidget(self.mplViewer, 0, 0, 2, 1)
