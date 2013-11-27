@@ -1,20 +1,20 @@
 """
 ompl_gui package
 
-A package containing classes related to a simple Open Motion Planning Library GUI
+A package containing classes related to a simple GUI for demonstrating
+functionality of an Agentified Open Motion Planning Library. 
 """
-__all__=['Pose2DBox.py', 'SolveWidget', 'BoundsWidget', 
-         'MainWidget', 'MPLViewer', 'PlannersWidget', 
-         'ProblemWidget']
 
-#from bounds_tab import BoundsBox
-#from MplCanvas import MplCanvas
-#from MyStaticMplCanvas import MyStaticMplCanvas
-from Pose2DBox import Pose2DBox
-from SolveWidget import SolveWidget
-from bounds_tab import BoundsWidget
-from MainWidget import MainWidget
-from plot_view import MPLViewer
-from planner_tab import PlannersWidget
-from problem_tab import ProblemWidget
-from obstacle_tab import ObstacleWidget
+from ompl_gui.Pose2DBox import Pose2DBox
+from ompl_gui.SolveWidget import SolveWidget
+from ompl_gui.bounds_tab import BoundsWidget
+from ompl_gui.MainWidget import MainWidget
+from ompl_gui.plot_view import MPLViewer
+from ompl_gui.planner_tab import PlannersWidget
+from ompl_gui.problem_tab import ProblemWidget
+from ompl_gui.obstacle_tab import ObstacleWidget
+
+__all__ = ['Pose2DBox', 'SolveWidget', 'BoundsWidget', 
+           'MainWidget', 'MPLViewer', 'PlannersWidget', 
+           'ProblemWidget']
+

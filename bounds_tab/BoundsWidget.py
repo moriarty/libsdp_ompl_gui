@@ -8,7 +8,7 @@
 # import statement
 
 from PyQt4 import QtCore, QtGui
-from BoundsBox import BoundsBox
+from ompl_gui.bounds_tab.BoundsBox import BoundsBox
 
 # BoundsWidget class 
 

@@ -8,8 +8,7 @@
 
 
 from PyQt4.QtCore import pyqtSignal as Signal
-from MplCanvas import MplCanvas
-from numpy import arange, sin, pi, cos
+from ompl_gui.plot_view.MplCanvas import MplCanvas
 import numpy as np
 
 
@@ -21,8 +20,8 @@ class MyStaticMplCanvas(MplCanvas):
     boundHighChanged = Signal(list)
 
     def compute_initial_figure(self):
-        t = arange(0.0, 3.0, 0.01)
-        s = sin(2*pi*t)
+        t = np.arange(0.0, 3.0, 0.01)
+        s = np.sin(2*np.pi*t)
         self.axes.plot(t, s)
 
     def refresh(self):
@@ -30,8 +29,8 @@ class MyStaticMplCanvas(MplCanvas):
         self.draw()
 
     def plot(self):
-        t = arange(0.0, 3.0, 0.01)
-        s = cos(2*pi*t)
+        t = np.arange(0.0, 3.0, 0.01)
+        s = np.cos(2*np.pi*t)
         self.axes.plot(t,s)
         self.refresh()
 

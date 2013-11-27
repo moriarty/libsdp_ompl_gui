@@ -7,7 +7,7 @@
 """
 
 from PyQt4.QtCore import pyqtSignal as Signal
-from MplCanvas import MplCanvas
+from ompl_gui.plot_view.MplCanvas import MplCanvas
 import numpy as np
 
 class MPLViewer(MplCanvas):
