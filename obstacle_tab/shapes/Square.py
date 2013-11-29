@@ -24,7 +24,7 @@ class Square(QtGui.QGroupBox):
     """
     sizeChanged = Signal(list)
 
-    self.codes = [Path.MOVETO,
+    codes = [Path.MOVETO,
         Path.LINETO,
         Path.LINETO,
         Path.LINETO,
