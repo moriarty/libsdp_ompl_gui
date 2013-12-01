@@ -36,6 +36,9 @@ class PlannersWidget(QtGui.QWidget):
         self.resetButton.clicked.connect(self.controlBox.setDefaults)
         self.resetButton.clicked.connect(self.optionBox.setDefaults)
 
+    def getSelectedPlanners(self):
+        return self.plannersBox.getSelectedPlanners()
+
     def getTimeLimit(self):
         return self.controlBox.getTimeLimit()
     

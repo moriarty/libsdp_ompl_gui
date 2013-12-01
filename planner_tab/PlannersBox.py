@@ -26,6 +26,12 @@ class PlannersBox(QtGui.QGroupBox):
         self.kpiece1Check.setChecked(False)
         self.kpiece1Check.setEnabled(False)
 
+        self.planners = []
+        self.planners.append([self.rrtCheck, "RRT"])
+        self.planners.append([self.pdstCheck, "PDST"])
+        self.planners.append([self.estCheck, "EST"])
+        self.planners.append([self.kpiece1Check, "KPIECE1"])
+
         layout = QtGui.QGridLayout()
         layout.addWidget(self.rrtCheck, 0, 0)
         layout.addWidget(self.pdstCheck, 0, 1)
@@ -38,6 +44,13 @@ class PlannersBox(QtGui.QGroupBox):
         self.pdstCheck.stateChanged.connect(self.ensurePlanner)
         self.estCheck.stateChanged.connect(self.ensurePlanner)
         self.kpiece1Check.stateChanged.connect(self.ensurePlanner)
+
+    def getSelectedPlanners(self):
+        selectedPlanners = []
+        for plannerCheck, name in self.planners:
+            if plannerCheck.checkState():
+                selectedPlanners.append(name)
+        return selectedPlanners
 
     def ensurePlanner(self):
         """

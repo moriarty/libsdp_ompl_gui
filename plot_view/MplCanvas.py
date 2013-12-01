@@ -10,6 +10,7 @@
 from PyQt4 import QtGui
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
+import matplotlib.pyplot as plt
 
 ## MplCanvas and MyStaticMplCanvas from embedding_in_qt4 tutorial on matplotlib site.
 class MplCanvas(FigureCanvas):
@@ -17,6 +18,7 @@ class MplCanvas(FigureCanvas):
     def __init__(self, parent=None, width=5, height=4, dpi=100):
         fig = Figure(figsize=(width, height), dpi=dpi)
         self.axes = fig.add_subplot(111)
+        #fig, axes = plt.subplots(1)
         # We want the axes cleared every time plot() is called
         self.axes.hold(False)
 
