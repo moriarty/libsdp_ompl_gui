@@ -30,3 +30,8 @@ class BoundsWidget(QtGui.QWidget):
         layout.addWidget(self.resetButton, 2,0, QtCore.Qt.AlignRight)
         layout.addWidget(self.applyButton, 2,1, QtCore.Qt.AlignRight)
         self.setLayout(layout)
+
+    def getBounds(self):
+        upper = self.bounds_high.getBounds()
+        lower = self.bounds_low.getBounds()
+        return [upper, lower]
