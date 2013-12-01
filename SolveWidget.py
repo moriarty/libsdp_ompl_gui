@@ -18,6 +18,8 @@ class SolveWidget(QtGui.QWidget):
         super(SolveWidget, self).__init__()
         self.solveButton = QtGui.QPushButton('Solve')
         self.plotButton = QtGui.QPushButton('Plot')
+        self.plotButton.setEnabled(False)
+
         self.clearButton = QtGui.QPushButton('Clear Plot')
         self.resetButton = QtGui.QPushButton('Reset Settings')
 
