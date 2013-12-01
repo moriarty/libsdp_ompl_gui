@@ -14,8 +14,6 @@ import numpy as np
 
 class MPLViewer(MplCanvas):
     """docstring for MPLViewer"""
-    boundLowChanged = Signal(list)
-    boundHighChanged = Signal(list)
 
     verts = [
         (5., 5.), # left, bottom
@@ -42,20 +40,16 @@ class MPLViewer(MplCanvas):
         self.axes.axis([-10,10,-10,10])
 
     def refresh(self):
-        self.boundsChanged()
         self.draw()
 
     def plot(self,x,y,label):
         self.axes.plot(x,y, label=label)
+        self.axes.legend(bbox_to_anchor=(0., 1.02, 1., .102), 
+            loc=3, ncol=4, mode="expand", borderaxespad=0.)
         self.refresh()
 
-    def boundsChanged(self):
-        xmin, xmax, ymin, ymax = self.axes.axis()
-        self.boundLowChanged.emit([xmin, ymin])
-        self.boundHighChanged.emit([xmax, ymax])
-
     def setBounds(self,upper=None,lower=None):
-        xmin, xmax, ymin, ymax = None, None, None, None
+        xmin, xmax, ymin, ymax = -10.0, 10.0, -10.0, 10.0
         if upper:
             xmax = upper[0]
             ymax = upper[1]
