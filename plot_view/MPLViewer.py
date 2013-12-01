@@ -46,7 +46,7 @@ class MPLViewer(MplCanvas):
         self.draw()
 
     def plot(self,x,y,label):
-        self.axes.plot(x,y,label)
+        self.axes.plot(x,y, label=label)
         self.refresh()
 
     def boundsChanged(self):
