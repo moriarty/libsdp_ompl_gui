@@ -18,7 +18,7 @@ class SolveWidget(QtGui.QWidget):
         super(SolveWidget, self).__init__()
         self.solveButton = QtGui.QPushButton('Solve')
         self.plotButton = QtGui.QPushButton('Plot')
-        self.clearButton = QtGui.QPushButton('Clear Plan')
+        self.clearButton = QtGui.QPushButton('Clear Plot')
         self.resetButton = QtGui.QPushButton('Reset Settings')
 
         layout = QtGui.QGridLayout()

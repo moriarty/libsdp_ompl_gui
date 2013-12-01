@@ -40,3 +40,6 @@ class MainWidget(QtGui.QWidget):
         layout.addWidget(tabWidget, 0, 1)
         layout.addWidget(self.solveWidget, 2, 0, 1, 2)
         self.setLayout(layout)
+
+        self.solveWidget.clearButton.clicked.connect(
+            self.mplViewer.clear)

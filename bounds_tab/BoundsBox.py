@@ -43,7 +43,6 @@ class BoundsBox(QtGui.QGroupBox):
 
     def setBounds(self, value):
         """setBounds
-
         allows connections to set bounds 
         """
         self.posx.setValue(value[0])
