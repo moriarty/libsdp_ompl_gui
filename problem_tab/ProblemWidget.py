@@ -7,7 +7,7 @@
 # Licence: 
 """
 
-from PyQt4 import QtGui
+from PyQt4 import QtGui, QtCore
 from PyQt4.QtCore import pyqtSignal as Signal
 from .. import Pose2DBox
 
@@ -25,20 +25,14 @@ class ProblemWidget(QtGui.QWidget):
 
         self.startPose = Pose2DBox('Start pose')
         self.goalPose = Pose2DBox('Goal pose')
-
-        startGoal = QtGui.QWidget()
-        layout = QtGui.QGridLayout()
-        layout.addWidget(self.startPose, 0, 0, 1, 2)
-        layout.addWidget(self.goalPose, 1, 0, 1 ,2)
-        startGoal.setLayout(layout)
-
-        self.poses = QtGui.QStackedWidget()
-        self.poses.addWidget(startGoal)
+        self.resetButton = QtGui.QPushButton('Reset')
 
         layout = QtGui.QGridLayout()
         layout.addWidget(robotTypeLabel, 0, 0)
         layout.addWidget(self.robotTypeSelect, 0, 1)
-        layout.addWidget(self.poses, 1, 0, 1, 2)
+        layout.addWidget(self.startPose, 1, 0, 1, 2)
+        layout.addWidget(self.goalPose, 2, 0, 1 ,2)
+        layout.addWidget(self.resetButton, 3,1, QtCore.Qt.AlignRight)
         self.setLayout(layout)
 
         self.startPose.valueChanged.connect(self.startPoseChange)
