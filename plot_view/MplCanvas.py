@@ -20,7 +20,7 @@ class MplCanvas(FigureCanvas):
         self.axes = fig.add_subplot(111)
         #fig, axes = plt.subplots(1)
         # We want the axes cleared every time plot() is called
-        self.axes.hold(False)
+        self.axes.hold(True)
 
         self.compute_initial_figure()
 
