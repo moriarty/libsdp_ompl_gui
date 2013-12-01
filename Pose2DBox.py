@@ -34,9 +34,9 @@ class Pose2DBox(QtGui.QGroupBox):
         layout.addWidget(xlabel, 0, 0, QtCore.Qt.AlignRight)
         layout.addWidget(ylabel, 1, 0, QtCore.Qt.AlignRight)
         layout.addWidget(yawlabel, 2, 0, QtCore.Qt.AlignRight)
-        layout.addWidget(self.posx, 0, 1)
-        layout.addWidget(self.posy, 1, 1)
-        layout.addWidget(self.yaw, 2, 1)
+        layout.addWidget(self.posx, 0, 1, QtCore.Qt.AlignLeft)
+        layout.addWidget(self.posy, 1, 1, QtCore.Qt.AlignLeft)
+        layout.addWidget(self.yaw, 2, 1, QtCore.Qt.AlignLeft)
         self.setLayout(layout)
 
         self.posx.valueChanged.connect(self.poseChange)

@@ -30,9 +30,12 @@ class PlannersWidget(QtGui.QWidget):
         layout.addWidget(self.resetButton,3,1, QtCore.Qt.AlignRight)
         self.setLayout(layout)
 
-        self.resetButton.clicked.connect(self.plannersBox.setDefaults)
-        self.resetButton.clicked.connect(self.controlBox.setDefaults)
-        self.resetButton.clicked.connect(self.optionBox.setDefaults)
+        self.resetButton.clicked.connect(self.reset)
+
+    def reset(self):
+        self.controlBox.setDefaults()
+        self.optionBox.setDefaults()
+        self.plannersBox.setDefaults()
 
     def getSelectedPlanners(self):
         return self.plannersBox.getSelectedPlanners()
@@ -48,3 +51,6 @@ class PlannersWidget(QtGui.QWidget):
 
     def getMinControlDuration(self):
         return self.controlBox.getMinControlDuration()
+
+    def getPlannerOptions(self):
+        return self.optionBox.getOptions()

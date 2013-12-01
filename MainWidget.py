@@ -43,3 +43,10 @@ class MainWidget(QtGui.QWidget):
 
         self.solveWidget.clearButton.clicked.connect(
             self.mplViewer.clear)
+        self.solveWidget.resetButton.clicked.connect(
+            self.reset)
+
+    def reset(self):
+        self.problemWidget.reset()
+        self.plannersWidget.reset()
+        self.boundsWidget.reset()

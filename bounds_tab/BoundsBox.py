@@ -33,8 +33,8 @@ class BoundsBox(QtGui.QGroupBox):
         layout = QtGui.QGridLayout()
         layout.addWidget(xlabel, 1, 0, QtCore.Qt.AlignRight)
         layout.addWidget(ylabel, 2, 0, QtCore.Qt.AlignRight)
-        layout.addWidget(self.posx, 1, 1)
-        layout.addWidget(self.posy, 2, 1)
+        layout.addWidget(self.posx, 1, 1, QtCore.Qt.AlignLeft)
+        layout.addWidget(self.posy, 2, 1, QtCore.Qt.AlignLeft)
         self.setLayout(layout)
 
         self.posx.valueChanged.connect(self.boundsChange)

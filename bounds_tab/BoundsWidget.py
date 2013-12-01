@@ -29,6 +29,10 @@ class BoundsWidget(QtGui.QWidget):
         layout.addWidget(self.resetButton, 2,1, QtCore.Qt.AlignRight)
         self.setLayout(layout)
 
+    def reset(self):
+        self.bounds_high.setBounds(UPPER_BOUNDS)
+        self.bounds_low.setBounds(LOWER_BOUNDS)
+
     def getBounds(self):
         upper = self.bounds_high.getBounds()
         lower = self.bounds_low.getBounds()

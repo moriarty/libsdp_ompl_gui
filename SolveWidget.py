@@ -20,7 +20,7 @@ class SolveWidget(QtGui.QWidget):
         self.plotButton = QtGui.QPushButton('Plot')
         self.clearPaths = QtGui.QPushButton('Clear Plans')
         self.clearButton = QtGui.QPushButton('Clear Plot')
-        self.resetButton = QtGui.QPushButton('Reset Settings')
+        self.resetButton = QtGui.QPushButton('Reset ALL Settings')
 
         self.enablePlotButton(False)
         self.enablePlansButton(False)

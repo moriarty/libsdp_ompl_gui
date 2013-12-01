@@ -20,7 +20,7 @@ class ProblemWidget(QtGui.QWidget):
         super(ProblemWidget, self).__init__()
         robotTypeLabel = QtGui.QLabel('Robot type')
         self.robotTypeSelect = QtGui.QComboBox()
-        self.robotTypeSelect.addItem("K.CarDemo2D")
+        self.robotTypeSelect.addItem("K. Car 2D")
         self.robotTypeSelect.setMaximumSize(200, 2000)
 
         self.startPose = Pose2DBox('Start pose')
@@ -28,15 +28,23 @@ class ProblemWidget(QtGui.QWidget):
         self.resetButton = QtGui.QPushButton('Reset')
 
         layout = QtGui.QGridLayout()
-        layout.addWidget(robotTypeLabel, 0, 0)
-        layout.addWidget(self.robotTypeSelect, 0, 1)
+        layout.addWidget(robotTypeLabel, 0, 0,
+            QtCore.Qt.AlignTop)
+        layout.addWidget(self.robotTypeSelect, 0, 1,
+            QtCore.Qt.AlignTop)
         layout.addWidget(self.startPose, 1, 0, 1, 2)
         layout.addWidget(self.goalPose, 2, 0, 1 ,2)
         layout.addWidget(self.resetButton, 3,1, QtCore.Qt.AlignRight)
         self.setLayout(layout)
 
+        self.resetButton.clicked.connect(self.reset)
+
         self.startPose.valueChanged.connect(self.startPoseChange)
         self.goalPose.valueChanged.connect(self.goalPoseChange)
+
+    def reset(self):
+        self.setStartPose()
+        self.setGoalPose()
 
     def setStartPose(self, x=0.0, y=0.0, yaw=0.0):
         self.startPose.setPose(x=x, y=y, yaw=yaw)
