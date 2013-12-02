@@ -10,7 +10,6 @@
 from PyQt4 import QtGui
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
-import matplotlib.pyplot as plt
 
 ## MplCanvas and MyStaticMplCanvas from embedding_in_qt4 tutorial on matplotlib site.
 class MplCanvas(FigureCanvas):

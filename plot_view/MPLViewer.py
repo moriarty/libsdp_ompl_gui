@@ -6,7 +6,6 @@
 # Licence: 
 """
 
-from PyQt4.QtCore import pyqtSignal as Signal
 from ompl_gui.plot_view.MplCanvas import MplCanvas
 from matplotlib.path import Path
 import matplotlib.patches as patches
