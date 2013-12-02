@@ -11,7 +11,7 @@ from PyQt4 import QtGui
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 from matplotlib.figure import Figure
 
-## MplCanvas and MyStaticMplCanvas from embedding_in_qt4 tutorial on matplotlib site.
+## MplCanvas from embedding_in_qt4 tutorial on matplotlib site.
 class MplCanvas(FigureCanvas):
     """Ultimately, this is a QWidget (as well as a FigureCanvasAgg, etc.)."""
     def __init__(self, parent=None, width=5, height=4, dpi=100):

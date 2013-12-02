@@ -36,18 +36,18 @@ class MPLViewer(MplCanvas):
         path = Path(self.verts, self.codes)
         patch = patches.PathPatch(path, facecolor='orange', lw=2)
         self.axes.add_patch(patch)
-        self.axes.axis([-10,10,-10,10])
+        self.axes.axis([-10, 10, -10, 10])
 
     def refresh(self):
         self.draw()
 
-    def plot(self,x,y,label):
-        self.axes.plot(x,y, label=label)
+    def plot(self, x, y, label):
+        self.axes.plot(x, y, label=label)
         self.axes.legend(bbox_to_anchor=(0., 1.02, 1., .102), 
             loc=3, ncol=4, mode="expand", borderaxespad=0.)
         self.refresh()
 
-    def setBounds(self,upper=None,lower=None):
+    def setBounds(self, upper=None, lower=None):
         xmin, xmax, ymin, ymax = -10.0, 10.0, -10.0, 10.0
         if upper:
             xmax = upper[0]
@@ -58,13 +58,12 @@ class MPLViewer(MplCanvas):
         self.axes.axis([xmin, xmax, ymin, ymax])
         self.refresh()
 
-    def setLowerBounds(self,bounds):
+    def setLowerBounds(self, bounds):
         self.setBounds(lower=bounds)
 
-    def setUpperBounds(self,bounds):
+    def setUpperBounds(self, bounds):
         self.setBounds(upper=bounds)
 
     def resetBounds(self):
-        self.setBounds(upper=[10,10], lower=[-10,-10])
+        self.setBounds(upper=[10, 10], lower=[-10, -10])
         self.refresh()
-
