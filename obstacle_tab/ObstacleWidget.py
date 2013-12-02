@@ -8,7 +8,7 @@
 # import statement
 
 from PyQt4 import QtCore, QtGui
-from shapes import Square
+from ompl_gui.obstacle_tab.shapes import Square
 from .. import Pose2DBox
 
 # ObstacleWidget class

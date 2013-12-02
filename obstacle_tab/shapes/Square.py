@@ -34,6 +34,8 @@ class Square(QtGui.QGroupBox):
     def __init__(self, title):
         super(Square, self).__init__(title)
         sizeLabel = QtGui.QLabel('Square Size')
+
+        self.vertices = None
         
         self.size = QtGui.QDoubleSpinBox()
         self.size.setRange(1, 10)
@@ -72,6 +74,6 @@ class Square(QtGui.QGroupBox):
         """ returns bounds: [ size ] """
         return [self.size.value()]
 
-    def sizeChange(self, value):
+    def sizeChange(self):
         """Emits ValueChanged Signal [ size]"""
         self.valueChanged.emit(self.getSize())
