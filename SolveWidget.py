@@ -16,26 +16,26 @@ class SolveWidget(QtGui.QWidget):
     """
     def __init__(self):
         super(SolveWidget, self).__init__()
-        self.solveButton = QtGui.QPushButton('Solve')
-        self.plotButton = QtGui.QPushButton('Plot')
-        self.clearPaths = QtGui.QPushButton('Clear Plans')
-        self.clearButton = QtGui.QPushButton('Clear Plot')
-        self.resetButton = QtGui.QPushButton('Reset ALL Settings')
+        self.solve_button = QtGui.QPushButton('Solve')
+        self.plot_button = QtGui.QPushButton('Plot')
+        self.clear_paths = QtGui.QPushButton('Clear Plans')
+        self.clear_button = QtGui.QPushButton('Clear Plot')
+        self.reset_button = QtGui.QPushButton('Reset ALL Settings')
 
-        self.enablePlotButton(False)
-        self.enablePlansButton(False)
+        self.enable_plot_button(False)
+        self.enable_plans_button(False)
 
         layout = QtGui.QGridLayout()
-        layout.addWidget(self.solveButton, 0, 0)
-        layout.addWidget(self.plotButton, 0, 1)
-        layout.addWidget(self.clearPaths, 0, 2)
-        layout.addWidget(self.clearButton, 0, 3)
-        layout.addWidget(self.resetButton, 0, 4)
+        layout.addWidget(self.solve_button, 0, 0)
+        layout.addWidget(self.plot_button, 0, 1)
+        layout.addWidget(self.clear_paths, 0, 2)
+        layout.addWidget(self.clear_button, 0, 3)
+        layout.addWidget(self.reset_button, 0, 4)
         self.setLayout(layout)
 
-    def enablePlotButton(self, setEnabled=True):
-        self.plotButton.setEnabled(setEnabled)
+    def enable_plot_button(self, set_enabled=True):
+        self.plot_button.setEnabled(set_enabled)
 
-    def enablePlansButton(self, setEnabled=True):
-        self.clearPaths.setEnabled(setEnabled)
+    def enable_plans_button(self, set_enabled=True):
+        self.clear_paths.setEnabled(set_enabled)
 

@@ -26,7 +26,7 @@ class MainWidget(QtGui.QWidget):
         self.plannersWidget = PlannersWidget()
         self.obstacleWidget = ObstacleWidget()
         self.boundsWidget = BoundsWidget()
-        self.solveWidget = SolveWidget()
+        self.solve_widget = SolveWidget()
         
         tabWidget = QtGui.QTabWidget()
         tabWidget.addTab(self.problemWidget, "Problem")
@@ -38,12 +38,12 @@ class MainWidget(QtGui.QWidget):
         layout = QtGui.QGridLayout()
         layout.addWidget(self.mplViewer, 0, 0, 2, 1)
         layout.addWidget(tabWidget, 0, 1)
-        layout.addWidget(self.solveWidget, 2, 0, 1, 2)
+        layout.addWidget(self.solve_widget, 2, 0, 1, 2)
         self.setLayout(layout)
 
-        self.solveWidget.clearButton.clicked.connect(
+        self.solve_widget.clear_button.clicked.connect(
             self.mplViewer.clear)
-        self.solveWidget.resetButton.clicked.connect(
+        self.solve_widget.reset_button.clicked.connect(
             self.reset)
 
         ## Bounds Widget and Path Viewer MPL.
@@ -81,9 +81,9 @@ class MainWidget(QtGui.QWidget):
     def getTimeLimit(self):
         return self.plannersWidget.getTimeLimit()
 
-    def enablePlotButton(self, setEnabled=True):
-        return self.solveWidget.enablePlotButton(setEnabled=setEnabled)
+    def enable_plot_button(self, set_enabled=True):
+        return self.solve_widget.enable_plot_button(set_enabled=set_enabled)
     
-    def enablePlansButton(self, setEnabled=True):
-        return self.solveWidget.enablePlansButton(setEnabled=setEnabled)
+    def enable_plans_button(self, set_enabled=True):
+        return self.solve_widget.enable_plans_button(set_enabled=set_enabled)
         
