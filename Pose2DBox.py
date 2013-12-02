@@ -27,7 +27,7 @@ class Pose2DBox(QtGui.QGroupBox):
         self.posy.setRange(-100, 100)
         self.posy.setSingleStep(1)
         self.yaw = QtGui.QDoubleSpinBox()
-        self.yaw.setRange(-360,360)
+        self.yaw.setRange(-360, 360)
         self.yaw.setSingleStep(1)
 
         layout = QtGui.QGridLayout()
