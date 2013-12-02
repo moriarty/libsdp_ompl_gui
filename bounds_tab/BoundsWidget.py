@@ -10,8 +10,8 @@
 from PyQt4 import QtCore, QtGui
 from ompl_gui.bounds_tab.BoundsBox import BoundsBox
 
-UPPER_BOUNDS = [10.0,10.0]
-LOWER_BOUNDS = [-10.0,-10.0]
+UPPER_BOUNDS = [10.0, 10.0]
+LOWER_BOUNDS = [-10.0, -10.0]
 
 # BoundsWidget class 
 
@@ -24,9 +24,9 @@ class BoundsWidget(QtGui.QWidget):
         self.bounds_low.setBounds(LOWER_BOUNDS)
         self.resetButton = QtGui.QPushButton('Reset')
         layout = QtGui.QGridLayout()
-        layout.addWidget(self.bounds_high, 0,0, 1, 2 )
-        layout.addWidget(self.bounds_low, 1,0, 1, 2)
-        layout.addWidget(self.resetButton, 2,1, QtCore.Qt.AlignRight)
+        layout.addWidget(self.bounds_high, 0, 0, 1, 2 )
+        layout.addWidget(self.bounds_low, 1, 0, 1, 2)
+        layout.addWidget(self.resetButton, 2, 1, QtCore.Qt.AlignRight)
         self.setLayout(layout)
 
     def reset(self):
