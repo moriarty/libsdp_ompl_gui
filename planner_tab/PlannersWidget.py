@@ -18,39 +18,39 @@ class PlannersWidget(QtGui.QWidget):
     """
     def __init__(self):
         super(PlannersWidget, self).__init__()
-        self.plannersBox = PlannersBox("Pick Planners")
-        self.controlBox = ControlBox("Control Options")
-        self.optionBox = OptionBox("Planner Options")
-        self.resetButton = QtGui.QPushButton('Reset')
+        self.planners_box = PlannersBox("Pick Planners")
+        self.control_box = ControlBox("Control Options")
+        self.option_box = OptionBox("Planner Options")
+        self.reset_button = QtGui.QPushButton('Reset')
         
         layout = QtGui.QGridLayout()
-        layout.addWidget(self.plannersBox, 0, 0, 1, 2)
-        layout.addWidget(self.controlBox, 1, 0, 1, 2)
-        layout.addWidget(self.optionBox, 2, 0, 1, 2)
-        layout.addWidget(self.resetButton, 3, 1, QtCore.Qt.AlignRight)
+        layout.addWidget(self.planners_box, 0, 0, 1, 2)
+        layout.addWidget(self.control_box, 1, 0, 1, 2)
+        layout.addWidget(self.option_box, 2, 0, 1, 2)
+        layout.addWidget(self.reset_button, 3, 1, QtCore.Qt.AlignRight)
         self.setLayout(layout)
 
-        self.resetButton.clicked.connect(self.reset)
+        self.reset_button.clicked.connect(self.reset)
 
     def reset(self):
-        self.controlBox.setDefaults()
-        self.optionBox.setDefaults()
-        self.plannersBox.setDefaults()
+        self.control_box.set_defaults()
+        self.option_box.set_defaults()
+        self.planners_box.set_defaults()
 
-    def getSelectedPlanners(self):
-        return self.plannersBox.getSelectedPlanners()
+    def get_selected_planners(self):
+        return self.planners_box.get_selected_planners()
 
-    def getTimeLimit(self):
-        return self.controlBox.getTimeLimit()
+    def get_time_limit(self):
+        return self.control_box.get_time_limit()
     
-    def getPropagation(self):
-        return self.controlBox.getPropagation()
+    def get_propagation(self):
+        return self.control_box.get_propagation()
 
-    def getMaxControlDuration(self):
-        return self.controlBox.getMaxControlDuration()
+    def get_max_control_duration(self):
+        return self.control_box.get_max_control_duration()
 
-    def getMinControlDuration(self):
-        return self.controlBox.getMinControlDuration()
+    def get_min_control_duration(self):
+        return self.control_box.get_min_control_duration()
 
-    def getPlannerOptions(self):
-        return self.optionBox.getOptions()
+    def get_planner_options(self):
+        return self.option_box.get_options()

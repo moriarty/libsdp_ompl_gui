@@ -13,61 +13,61 @@ class OptionBox(QtGui.QGroupBox):
     def __init__(self, title):
         super(OptionBox, self).__init__(title)
         
-        goalBiasLabel = QtGui.QLabel('Goal bias')
-        self.goalBias = QtGui.QDoubleSpinBox()
-        self.goalBias.setRange(0, 1)
-        self.goalBias.setSingleStep(0.05)
-        self.goalBias.setValue(0.05)
+        goal_bias_label = QtGui.QLabel('Goal bias')
+        self.goal_bias = QtGui.QDoubleSpinBox()
+        self.goal_bias.setRange(0, 1)
+        self.goal_bias.setSingleStep(0.05)
+        self.goal_bias.setValue(0.05)
 
-        rangeLabel = QtGui.QLabel('Range')
-        self.rangeBox = QtGui.QDoubleSpinBox()
-        self.rangeBox.setRange(0, 100)
-        self.rangeBox.setSingleStep(1.00)
-        self.rangeBox.setValue(0.00)
+        range_label = QtGui.QLabel('Range')
+        self.range_box = QtGui.QDoubleSpinBox()
+        self.range_box.setRange(0, 100)
+        self.range_box.setSingleStep(1.00)
+        self.range_box.setValue(0.00)
 
-        borderFractionLabel = QtGui.QLabel('Border Fraction')
-        self.borderFraction = QtGui.QDoubleSpinBox()
-        self.borderFraction.setRange(0, 1)
-        self.borderFraction.setSingleStep(0.05)
-        self.borderFraction.setValue(0.80) 
+        border_fraction_label = QtGui.QLabel('Border Fraction')
+        self.border_fraction = QtGui.QDoubleSpinBox()
+        self.border_fraction.setRange(0, 1)
+        self.border_fraction.setSingleStep(0.05)
+        self.border_fraction.setValue(0.80) 
 
         layout = QtGui.QGridLayout()
-        layout.addWidget(goalBiasLabel, 0, 0, QtCore.Qt.AlignRight)
-        layout.addWidget(self.goalBias, 0, 1, 1, 2)
-        layout.addWidget(rangeLabel, 1, 0, QtCore.Qt.AlignRight)
-        layout.addWidget(self.rangeBox, 1, 1, 1, 2)
-        layout.addWidget(borderFractionLabel, 2, 0, QtCore.Qt.AlignRight)
-        layout.addWidget(self.borderFraction, 2, 1, 1, 2)
+        layout.addWidget(goal_bias_label, 0, 0, QtCore.Qt.AlignRight)
+        layout.addWidget(self.goal_bias, 0, 1, 1, 2)
+        layout.addWidget(range_label, 1, 0, QtCore.Qt.AlignRight)
+        layout.addWidget(self.range_box, 1, 1, 1, 2)
+        layout.addWidget(border_fraction_label, 2, 0, QtCore.Qt.AlignRight)
+        layout.addWidget(self.border_fraction, 2, 1, 1, 2)
         self.setLayout(layout)
 
-    def setGoalBias(self, value=0.05):
-        self.goalBias.setValue(value)
+    def set_goal_bias(self, value=0.05):
+        self.goal_bias.setValue(value)
 
-    def setBorderFraction(self, value=0.80):
-        self.borderFraction.setValue(value)
+    def set_border_fraction(self, value=0.80):
+        self.border_fraction.setValue(value)
 
-    def setRange(self, value=0.00):
-        self.rangeBox.setValue(value)
+    def set_range(self, value=0.00):
+        self.range_box.setValue(value)
 
-    def setDefaults(self):
-        self.setGoalBias()
-        self.setBorderFraction()
-        self.setRange()
+    def set_defaults(self):
+        self.set_goal_bias()
+        self.set_border_fraction()
+        self.set_range()
 
-    def getGoalBias(self):
-        return self.goalBias.value()
+    def get_goal_bias(self):
+        return self.goal_bias.value()
 
-    def getRange(self):
-        return self.rangeBox.value()
+    def get_range(self):
+        return self.range_box.value()
 
-    def getBorderFraction(self):
-        return self.borderFraction.value()
+    def get_border_fraction(self):
+        return self.border_fraction.value()
 
-    def getOptions(self):
+    def get_options(self):
         options = {}
-        options.update({"goal_bias": self.getGoalBias()})
-        options.update({"range": self.getRange()})
-        options.update({"border_fraction": self.getBorderFraction()})
+        options.update({"goal_bias": self.get_goal_bias()})
+        options.update({"range": self.get_range()})
+        options.update({"border_fraction": self.get_border_fraction()})
         return options
 
 

@@ -23,14 +23,14 @@ class MainWidget(QtGui.QWidget):
         super(MainWidget, self).__init__()
         self.mplViewer = MPLViewer()
         self.problem_widget = ProblemWidget()
-        self.plannersWidget = PlannersWidget()
+        self.planners_widget = PlannersWidget()
         self.obstacleWidget = ObstacleWidget()
         self.bounds_widget = BoundsWidget()
         self.solve_widget = SolveWidget()
         
         tabWidget = QtGui.QTabWidget()
         tabWidget.addTab(self.problem_widget, "Problem")
-        tabWidget.addTab(self.plannersWidget, "Planners")
+        tabWidget.addTab(self.planners_widget, "Planners")
         tabWidget.addTab(self.bounds_widget, "Bounding box")
         tabWidget.addTab(self.obstacleWidget, "Obstacle")
         tabWidget.setTabEnabled(3, False)
@@ -57,29 +57,29 @@ class MainWidget(QtGui.QWidget):
 
     def reset(self):
         self.problem_widget.reset()
-        self.plannersWidget.reset()
+        self.planners_widget.reset()
         self.bounds_widget.reset()
 
     def get_bounds(self):
         return self.bounds_widget.get_bounds()
 
-    def getSelectedPlanners(self):
-        return self.plannersWidget.getSelectedPlanners()
+    def get_selected_planners(self):
+        return self.planners_widget.get_selected_planners()
     
-    def getPropagation(self):
-        return self.plannersWidget.getPropagation()
+    def get_propagation(self):
+        return self.planners_widget.get_propagation()
     
-    def getMinControlDuration(self):
-        return self.plannersWidget.getMinControlDuration()
+    def get_min_control_duration(self):
+        return self.planners_widget.get_min_control_duration()
     
-    def getMaxControlDuration(self):
-        return self.plannersWidget.getMaxControlDuration()
+    def get_max_control_duration(self):
+        return self.planners_widget.get_max_control_duration()
     
-    def getPlannerOptions(self):
-        return self.plannersWidget.getPlannerOptions()
+    def get_planner_options(self):
+        return self.planners_widget.get_planner_options()
     
-    def getTimeLimit(self):
-        return self.plannersWidget.getTimeLimit()
+    def get_time_limit(self):
+        return self.planners_widget.get_time_limit()
 
     def enable_plot_button(self, set_enabled=True):
         return self.solve_widget.enable_plot_button(set_enabled=set_enabled)

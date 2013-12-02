@@ -39,22 +39,22 @@ class ProblemWidget(QtGui.QWidget):
 
         self.reset_button.clicked.connect(self.reset)
 
-        self.start_pose.valueChanged.connect(self.start_pose_change)
-        self.goal_pose.valueChanged.connect(self.goal_pose_change)
+        self.start_pose.value_changed.connect(self.start_pose_change)
+        self.goal_pose.value_changed.connect(self.goal_pose_change)
 
     def reset(self):
         self.set_start_pose()
         self.set_goal_pose()
 
     def set_start_pose(self, x=0.0, y=0.0, yaw=0.0):
-        self.start_pose.setPose(x=x, y=y, yaw=yaw)
+        self.start_pose.set_pose(x=x, y=y, yaw=yaw)
     def set_goal_pose(self, x=0.0, y=0.0, yaw=0.0):
-        self.goal_pose.setPose(x=x, y=y, yaw=yaw)
+        self.goal_pose.set_pose(x=x, y=y, yaw=yaw)
 
     def get_start_pose(self):
-        return self.start_pose.getPose()
+        return self.start_pose.get_pose()
     def get_goal_pose(self):
-        return self.goal_pose.getPose()
+        return self.goal_pose.get_pose()
 
     def start_pose_change(self, value):
         self.start_changed.emit(value)

@@ -12,7 +12,7 @@ import numpy as np
 
 # Pose2DBox class
 class Pose2DBox(QtGui.QGroupBox):
-    valueChanged = Signal(list)
+    value_changed = Signal(list)
 
     def __init__(self, title):
         super(Pose2DBox, self).__init__(title)
@@ -39,20 +39,20 @@ class Pose2DBox(QtGui.QGroupBox):
         layout.addWidget(self.yaw, 2, 1, QtCore.Qt.AlignLeft)
         self.setLayout(layout)
 
-        self.posx.valueChanged.connect(self.poseChange)
-        self.posy.valueChanged.connect(self.poseChange)
-        self.yaw.valueChanged.connect(self.poseChange)
+        self.posx.valueChanged.connect(self.pose_change)
+        self.posy.valueChanged.connect(self.pose_change)
+        self.yaw.valueChanged.connect(self.pose_change)
 
-    def setPose(self, x=0, y=0, yaw=0):
+    def set_pose(self, x=0, y=0, yaw=0):
         self.posx.setValue(x)
         self.posy.setValue(y)
         self.yaw.setValue(yaw * 180 / np.pi)
 
-    def getPose(self):
+    def get_pose(self):
         x = self.posx.value()
         y = self.posy.value()
         yaw = self.yaw.value()
         return [x, y, yaw]
 
-    def poseChange(self):
-        self.valueChanged.emit( self.getPose() )
+    def pose_change(self):
+        self.value_changed.emit( self.get_pose() )

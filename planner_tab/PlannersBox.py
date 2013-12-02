@@ -13,61 +13,61 @@ class PlannersBox(QtGui.QGroupBox):
     def __init__(self, title):
         super(PlannersBox, self).__init__(title)
         
-        self.rrtCheck = QtGui.QCheckBox('RRT (default)')
-        self.rrtCheck.setChecked(True)
-        self.pdstCheck = QtGui.QCheckBox('PDST')
-        self.pdstCheck.setChecked(False)
-        self.estCheck = QtGui.QCheckBox('EST')
-        self.estCheck.setChecked(False)
-        self.kpiece1Check = QtGui.QCheckBox('KPIECE1')
-        self.kpiece1Check.setChecked(False)
+        self.rrt_check = QtGui.QCheckBox('RRT (default)')
+        self.rrt_check.setChecked(True)
+        self.pdst_check = QtGui.QCheckBox('PDST')
+        self.pdst_check.setChecked(False)
+        self.est_check = QtGui.QCheckBox('EST')
+        self.est_check.setChecked(False)
+        self.kpiece1_check = QtGui.QCheckBox('KPIECE1')
+        self.kpiece1_check.setChecked(False)
         
         self.planners = []
-        self.planners.append([self.rrtCheck, "RRT"])
-        self.planners.append([self.pdstCheck, "PDST"])
-        self.planners.append([self.estCheck, "EST"])
-        self.planners.append([self.kpiece1Check, "KPIECE1"])
+        self.planners.append([self.rrt_check, "RRT"])
+        self.planners.append([self.pdst_check, "PDST"])
+        self.planners.append([self.est_check, "EST"])
+        self.planners.append([self.kpiece1_check, "KPIECE1"])
 
         layout = QtGui.QGridLayout()
-        layout.addWidget(self.rrtCheck, 0, 0)
-        layout.addWidget(self.pdstCheck, 0, 1)
-        layout.addWidget(self.estCheck, 1, 0)
-        layout.addWidget(self.kpiece1Check, 1, 1)
+        layout.addWidget(self.rrt_check, 0, 0)
+        layout.addWidget(self.pdst_check, 0, 1)
+        layout.addWidget(self.est_check, 1, 0)
+        layout.addWidget(self.kpiece1_check, 1, 1)
         self.setLayout(layout)
 
         # Connect buttons to insure at least one is selected.
-        self.rrtCheck.stateChanged.connect(self.ensurePlanner)
-        self.pdstCheck.stateChanged.connect(self.ensurePlanner)
-        self.estCheck.stateChanged.connect(self.ensurePlanner)
-        self.kpiece1Check.stateChanged.connect(self.ensurePlanner)
+        self.rrt_check.stateChanged.connect(self.ensure_planner)
+        self.pdst_check.stateChanged.connect(self.ensure_planner)
+        self.est_check.stateChanged.connect(self.ensure_planner)
+        self.kpiece1_check.stateChanged.connect(self.ensure_planner)
 
-    def getSelectedPlanners(self):
-        selectedPlanners = []
-        for plannerCheck, name in self.planners:
-            if plannerCheck.checkState():
-                selectedPlanners.append(name)
-        return selectedPlanners
+    def get_selected_planners(self):
+        selected_planners = []
+        for planner_check, name in self.planners:
+            if planner_check.checkState():
+                selected_planners.append(name)
+        return selected_planners
 
-    def ensurePlanner(self):
+    def ensure_planner(self):
         """
         Note: I've tried this many different ways, but there is still a bug.
         Double checking RRT does not recheck RRT, 
         """
-        if self.rrtCheck.checkState(): 
+        if self.rrt_check.checkState(): 
             pass
-        elif self.pdstCheck.checkState(): 
+        elif self.pdst_check.checkState(): 
             pass
-        elif self.estCheck.checkState(): 
+        elif self.est_check.checkState(): 
             pass
-        elif self.kpiece1Check.checkState(): 
+        elif self.kpiece1_check.checkState(): 
             pass
         else:
-            self.setDefaults()
+            self.set_defaults()
 
-    def setDefaults(self):
+    def set_defaults(self):
         """Sets the RRT to checked"""
-        self.rrtCheck.setChecked(True)
-        self.pdstCheck.setChecked(False)
-        self.estCheck.setChecked(False)
-        self.kpiece1Check.setChecked(False)
+        self.rrt_check.setChecked(True)
+        self.pdst_check.setChecked(False)
+        self.est_check.setChecked(False)
+        self.kpiece1_check.setChecked(False)
 
