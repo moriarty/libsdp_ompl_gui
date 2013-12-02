@@ -22,14 +22,14 @@ class MainWidget(QtGui.QWidget):
     def __init__(self):
         super(MainWidget, self).__init__()
         self.mplViewer = MPLViewer()
-        self.problemWidget = ProblemWidget()
+        self.problem_widget = ProblemWidget()
         self.plannersWidget = PlannersWidget()
         self.obstacleWidget = ObstacleWidget()
         self.boundsWidget = BoundsWidget()
         self.solve_widget = SolveWidget()
         
         tabWidget = QtGui.QTabWidget()
-        tabWidget.addTab(self.problemWidget, "Problem")
+        tabWidget.addTab(self.problem_widget, "Problem")
         tabWidget.addTab(self.plannersWidget, "Planners")
         tabWidget.addTab(self.boundsWidget, "Bounding box")
         tabWidget.addTab(self.obstacleWidget, "Obstacle")
@@ -56,7 +56,7 @@ class MainWidget(QtGui.QWidget):
             self.mplViewer.setUpperBounds)
 
     def reset(self):
-        self.problemWidget.reset()
+        self.problem_widget.reset()
         self.plannersWidget.reset()
         self.boundsWidget.reset()
 
@@ -86,4 +86,9 @@ class MainWidget(QtGui.QWidget):
     
     def enable_plans_button(self, set_enabled=True):
         return self.solve_widget.enable_plans_button(set_enabled=set_enabled)
-        
+    
+    def get_start_pose(self):
+        return self.problem_widget.get_start_pose()
+
+    def get_goal_pose(self):
+        return self.problem_widget.get_goal_pose()
