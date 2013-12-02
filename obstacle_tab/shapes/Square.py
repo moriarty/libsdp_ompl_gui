@@ -11,10 +11,10 @@ from PyQt4.QtCore import pyqtSignal as Signal
 from matplotlib.path import Path
 import numpy as np
 
-def xy_from_htheta(h, theta):
+def xy_from_htheta(hyp, theta):
     rtheta = theta*np.pi/180
-    x = np.cos(rtheta)/h
-    y = np.sin(rtheta)/h
+    x = np.cos(rtheta)/hyp
+    y = np.sin(rtheta)/hyp
     return (x, y)
 
 # Square class
@@ -22,7 +22,7 @@ class Square(QtGui.QGroupBox):
     """
     Simple Square obstacle
     """
-    sizeChanged = Signal(list)
+    size_changed = Signal(list)
 
     codes = [Path.MOVETO,
         Path.LINETO,
@@ -33,7 +33,7 @@ class Square(QtGui.QGroupBox):
 
     def __init__(self, title):
         super(Square, self).__init__(title)
-        sizeLabel = QtGui.QLabel('Square Size')
+        size_label = QtGui.QLabel('Square Size')
 
         self.vertices = None
         
@@ -42,14 +42,14 @@ class Square(QtGui.QGroupBox):
         self.size.setSingleStep(0.5)
 
         layout = QtGui.QGridLayout()
-        layout.addWidget(sizeLabel, 1, 0, QtCore.Qt.AlignRight)
+        layout.addWidget(size_label, 1, 0, QtCore.Qt.AlignRight)
         layout.addWidget(self.size, 1, 1)
         self.setLayout(layout)
 
         ## Connect a change in size to sizeChange()
-        self.size.valueChanged.connect(self.sizeChange)
+        self.size.valueChanged.connect(self.size_change)
 
-    def setVertices(self, xcentre=0.0, ycentre=0.0, theta=0.0, size=1):
+    def set_vertices(self, xcentre=0.0, ycentre=0.0, theta=0.0, size=1):
         angles = np.array([45, 135, 225, 315]) + theta
         distance = np.sqrt(2*size**2)/2
         xy_centre = np.array([[xcentre], [ycentre]])
@@ -58,22 +58,22 @@ class Square(QtGui.QGroupBox):
         verts.append(verts[0])
         self.vertices = verts
 
-    def getVertices(self):
+    def get_vertices(self):
         return self.vertices
 
-    def getPathCodes(self):
+    def get_path_codes(self):
         return self.codes
 
-    def setSize(self, value):
+    def set_size(self, value):
         """setBounds
         allows connections to set bounds
         """
         self.size.setValue(value[0])
 
-    def getSize(self):
+    def get_size(self):
         """ returns bounds: [ size ] """
         return [self.size.value()]
 
-    def sizeChange(self):
-        """Emits ValueChanged Signal [ size]"""
-        self.valueChanged.emit(self.getSize())
+    def size_change(self):
+        """Emits size_shanged Signal [ size]"""
+        self.size_changed.emit(self.getSize())
