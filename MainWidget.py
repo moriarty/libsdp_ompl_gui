@@ -21,10 +21,10 @@ class MainWidget(QtGui.QWidget):
     """
     def __init__(self):
         super(MainWidget, self).__init__()
-        self.mplViewer = MPLViewer()
+        self.mpl_viewer = MPLViewer()
         self.problem_widget = ProblemWidget()
         self.planners_widget = PlannersWidget()
-        self.obstacleWidget = ObstacleWidget()
+        self.obstacle_widget = ObstacleWidget()
         self.bounds_widget = BoundsWidget()
         self.solve_widget = SolveWidget()
         
@@ -32,28 +32,28 @@ class MainWidget(QtGui.QWidget):
         tabWidget.addTab(self.problem_widget, "Problem")
         tabWidget.addTab(self.planners_widget, "Planners")
         tabWidget.addTab(self.bounds_widget, "Bounding box")
-        tabWidget.addTab(self.obstacleWidget, "Obstacle")
+        tabWidget.addTab(self.obstacle_widget, "Obstacle")
         tabWidget.setTabEnabled(3, False)
 
         layout = QtGui.QGridLayout()
-        layout.addWidget(self.mplViewer, 0, 0, 2, 1)
+        layout.addWidget(self.mpl_viewer, 0, 0, 2, 1)
         layout.addWidget(tabWidget, 0, 1)
         layout.addWidget(self.solve_widget, 2, 0, 1, 2)
         self.setLayout(layout)
 
         self.solve_widget.clear_button.clicked.connect(
-            self.mplViewer.clear)
+            self.mpl_viewer.clear)
         self.solve_widget.reset_button.clicked.connect(
             self.reset)
 
         ## Bounds Widget and Path Viewer MPL.
         ## Connections are very loopy atm
         self.bounds_widget.reset_button.clicked.connect(
-            self.mplViewer.resetBounds)
+            self.mpl_viewer.reset_bounds)
         self.bounds_widget.bounds_low.value_changed.connect(
-            self.mplViewer.setLowerBounds)
+            self.mpl_viewer.set_lower_bounds)
         self.bounds_widget.bounds_high.value_changed.connect(
-            self.mplViewer.setUpperBounds)
+            self.mpl_viewer.set_upper_bounds)
 
     def reset(self):
         self.problem_widget.reset()

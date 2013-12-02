@@ -30,9 +30,9 @@ class MPLViewer(MplCanvas):
         ]
 
     def compute_initial_figure(self):
-        t = np.arange(0.0, 3.0, 0.01)
-        s = np.sin(2*np.pi*t)
-        self.axes.plot(t, s)
+        time = np.arange(0.0, 3.0, 0.01)
+        sin = np.sin(2*np.pi*time)
+        self.axes.plot(time, sin)
         path = Path(self.verts, self.codes)
         patch = patches.PathPatch(path, facecolor='orange', lw=2)
         self.axes.add_patch(patch)
@@ -47,7 +47,7 @@ class MPLViewer(MplCanvas):
             loc=3, ncol=4, mode="expand", borderaxespad=0.)
         self.refresh()
 
-    def setBounds(self, upper=None, lower=None):
+    def set_bounds(self, upper=None, lower=None):
         xmin, xmax, ymin, ymax = -10.0, 10.0, -10.0, 10.0
         if upper:
             xmax = upper[0]
@@ -58,12 +58,12 @@ class MPLViewer(MplCanvas):
         self.axes.axis([xmin, xmax, ymin, ymax])
         self.refresh()
 
-    def setLowerBounds(self, bounds):
-        self.setBounds(lower=bounds)
+    def set_lower_bounds(self, bounds):
+        self.set_bounds(lower=bounds)
 
-    def setUpperBounds(self, bounds):
-        self.setBounds(upper=bounds)
+    def set_upper_bounds(self, bounds):
+        self.set_bounds(upper=bounds)
 
-    def resetBounds(self):
-        self.setBounds(upper=[10, 10], lower=[-10, -10])
+    def reset_bounds(self):
+        self.set_bounds(upper=[10, 10], lower=[-10, -10])
         self.refresh()
