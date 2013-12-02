@@ -20,20 +20,20 @@ class BoundsWidget(QtGui.QWidget):
         super(BoundsWidget, self).__init__()
         self.bounds_high = BoundsBox('Upper bounds')
         self.bounds_low = BoundsBox('Lower bounds')
-        self.bounds_high.setBounds(UPPER_BOUNDS)
-        self.bounds_low.setBounds(LOWER_BOUNDS)
-        self.resetButton = QtGui.QPushButton('Reset')
+        self.bounds_high.set_bounds(UPPER_BOUNDS)
+        self.bounds_low.set_bounds(LOWER_BOUNDS)
+        self.reset_button = QtGui.QPushButton('Reset')
         layout = QtGui.QGridLayout()
         layout.addWidget(self.bounds_high, 0, 0, 1, 2 )
         layout.addWidget(self.bounds_low, 1, 0, 1, 2)
-        layout.addWidget(self.resetButton, 2, 1, QtCore.Qt.AlignRight)
+        layout.addWidget(self.reset_button, 2, 1, QtCore.Qt.AlignRight)
         self.setLayout(layout)
 
     def reset(self):
-        self.bounds_high.setBounds(UPPER_BOUNDS)
-        self.bounds_low.setBounds(LOWER_BOUNDS)
+        self.bounds_high.set_bounds(UPPER_BOUNDS)
+        self.bounds_low.set_bounds(LOWER_BOUNDS)
 
-    def getBounds(self):
-        upper = self.bounds_high.getBounds()
-        lower = self.bounds_low.getBounds()
+    def get_bounds(self):
+        upper = self.bounds_high.get_bounds()
+        lower = self.bounds_low.get_bounds()
         return [upper, lower]

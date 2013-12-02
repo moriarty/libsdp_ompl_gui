@@ -16,7 +16,7 @@ class BoundsBox(QtGui.QGroupBox):
 
     Same as Bounds Box in ompl_app but only 2D
     """
-    valueChanged = Signal(list)
+    value_changed = Signal(list)
 
     def __init__(self, title):
         super(BoundsBox, self).__init__(title)
@@ -37,22 +37,22 @@ class BoundsBox(QtGui.QGroupBox):
         layout.addWidget(self.posy, 2, 1, QtCore.Qt.AlignLeft)
         self.setLayout(layout)
 
-        self.posx.valueChanged.connect(self.boundsChange)
-        self.posy.valueChanged.connect(self.boundsChange)
+        self.posx.valueChanged.connect(self.bounds_change)
+        self.posy.valueChanged.connect(self.bounds_change)
 
 
-    def setBounds(self, value):
-        """setBounds
+    def set_bounds(self, value):
+        """set_bounds
         allows connections to set bounds 
         """
         self.posx.setValue(value[0])
         self.posy.setValue(value[1])
 
-    def getBounds(self):
+    def get_bounds(self):
         """ returns bounds: [x , y] """
         return [self.posx.value(), self.posy.value()]
 
-    def boundsChange(self):
+    def bounds_change(self):
         """Emits ValueChanged Signal [ x, y]"""
-        self.valueChanged.emit([ self.posx.value(), self.posy.value() ])
+        self.value_changed.emit([ self.posx.value(), self.posy.value() ])
 
