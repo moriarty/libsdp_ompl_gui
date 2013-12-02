@@ -32,7 +32,7 @@ class PlannersBox(QtGui.QGroupBox):
         layout.addWidget(self.rrtCheck, 0, 0)
         layout.addWidget(self.pdstCheck, 0, 1)
         layout.addWidget(self.estCheck, 1, 0)
-        layout.addWidget(self.kpiece1Check,1,1)
+        layout.addWidget(self.kpiece1Check, 1, 1)
         self.setLayout(layout)
 
         # Connect buttons to insure at least one is selected.

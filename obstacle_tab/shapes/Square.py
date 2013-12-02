@@ -49,12 +49,12 @@ class Square(QtGui.QGroupBox):
         ## Connect a change in size to sizeChange()
         self.size.valueChanged.connect(self.sizeChange)
 
-    def setVertices(self, xcentre=0.0,ycentre=0.0, theta=0.0, size=1):
+    def setVertices(self, xcentre=0.0, ycentre=0.0, theta=0.0, size=1):
         angles = np.array([45, 135, 225, 315]) + theta
         distance = np.sqrt(2*size**2)/2
-        xy_centre = np.array([[xcentre],[ycentre]])
+        xy_centre = np.array([[xcentre], [ycentre]])
         x, y = xy_from_htheta(distance, angles) + xy_centre
-        verts = zip(x,y)
+        verts = zip(x, y)
         verts.append(verts[0])
         self.vertices = verts
 

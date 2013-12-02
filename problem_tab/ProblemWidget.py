@@ -33,8 +33,8 @@ class ProblemWidget(QtGui.QWidget):
         layout.addWidget(self.robotTypeSelect, 0, 1,
             QtCore.Qt.AlignTop)
         layout.addWidget(self.startPose, 1, 0, 1, 2)
-        layout.addWidget(self.goalPose, 2, 0, 1 ,2)
-        layout.addWidget(self.resetButton, 3,1, QtCore.Qt.AlignRight)
+        layout.addWidget(self.goalPose, 2, 0, 1, 2)
+        layout.addWidget(self.resetButton, 3, 1, QtCore.Qt.AlignRight)
         self.setLayout(layout)
 
         self.resetButton.clicked.connect(self.reset)

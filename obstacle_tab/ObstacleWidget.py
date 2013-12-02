@@ -31,8 +31,8 @@ class ObstacleWidget(QtGui.QWidget):
         self.applyButton.setEnabled(False)
 
         layout = QtGui.QGridLayout()
-        layout.addWidget(self.obstacleTypeLabel, 0,0)
-        layout.addWidget(self.obstacleTypeSelect, 0,1)
+        layout.addWidget(self.obstacleTypeLabel, 0, 0)
+        layout.addWidget(self.obstacleTypeSelect, 0, 1)
         layout.addWidget(self.obstaclePose, 1, 0, 1, 2)
-        layout.addWidget(self.applyButton, 2,0, QtCore.Qt.AlignRight)
+        layout.addWidget(self.applyButton, 2, 0, QtCore.Qt.AlignRight)
         self.setLayout(layout)
