@@ -46,7 +46,44 @@ class MainWidget(QtGui.QWidget):
         self.solveWidget.resetButton.clicked.connect(
             self.reset)
 
+        ## Bounds Widget and Path Viewer MPL.
+        ## Connections are very loopy atm
+        self.boundsWidget.resetButton.clicked.connect(
+            self.mplViewer.resetBounds)
+        self.boundsWidget.bounds_low.valueChanged.connect(
+            self.mplViewer.setLowerBounds)
+        self.boundsWidget.bounds_high.valueChanged.connect(
+            self.mplViewer.setUpperBounds)
+
     def reset(self):
         self.problemWidget.reset()
         self.plannersWidget.reset()
         self.boundsWidget.reset()
+
+    def getBounds(self):
+        return self.boundsWidget.getBounds()
+
+    def getSelectedPlanners(self):
+        return self.plannersWidget.getSelectedPlanners()
+    
+    def getPropagation(self):
+        return self.plannersWidget.getPropagation()
+    
+    def getMinControlDuration(self):
+        return self.plannersWidget.getMinControlDuration()
+    
+    def getMaxControlDuration(self):
+        return self.plannersWidget.getMaxControlDuration()
+    
+    def getPlannerOptions(self):
+        return self.plannersWidget.getPlannerOptions()
+    
+    def getTimeLimit(self):
+        return self.plannersWidget.getTimeLimit()
+
+    def enablePlotButton(self, setEnabled=True):
+        return self.solveWidget.enablePlotButton(setEnabled=setEnabled)
+    
+    def enablePlansButton(self, setEnabled=True):
+        return self.solveWidget.enablePlansButton(setEnabled=setEnabled)
+        
