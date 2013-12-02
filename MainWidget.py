@@ -28,16 +28,16 @@ class MainWidget(QtGui.QWidget):
         self.bounds_widget = BoundsWidget()
         self.solve_widget = SolveWidget()
         
-        tabWidget = QtGui.QTabWidget()
-        tabWidget.addTab(self.problem_widget, "Problem")
-        tabWidget.addTab(self.planners_widget, "Planners")
-        tabWidget.addTab(self.bounds_widget, "Bounding box")
-        tabWidget.addTab(self.obstacle_widget, "Obstacle")
-        tabWidget.setTabEnabled(3, False)
+        tab_widget = QtGui.QTabWidget()
+        tab_widget.addTab(self.problem_widget, "Problem")
+        tab_widget.addTab(self.planners_widget, "Planners")
+        tab_widget.addTab(self.bounds_widget, "Bounding box")
+        tab_widget.addTab(self.obstacle_widget, "Obstacle")
+        tab_widget.setTabEnabled(3, False)
 
         layout = QtGui.QGridLayout()
         layout.addWidget(self.mpl_viewer, 0, 0, 2, 1)
-        layout.addWidget(tabWidget, 0, 1)
+        layout.addWidget(tab_widget, 0, 1)
         layout.addWidget(self.solve_widget, 2, 0, 1, 2)
         self.setLayout(layout)
 
