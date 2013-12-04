@@ -16,5 +16,5 @@ from ompl_gui.obstacle_tab import ObstacleWidget
 
 __all__ = ['Pose2DBox', 'SolveWidget', 'BoundsWidget', 
            'MainWidget', 'MPLViewer', 'PlannersWidget', 
-           'ProblemWidget']
+           'ProblemWidget', 'ObstacleWidget']
 
