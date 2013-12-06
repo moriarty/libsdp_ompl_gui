@@ -29,6 +29,14 @@ class MPLViewer(MplCanvas):
         Path.CLOSEPOLY,
         ]
 
+    def plot_square_obstacle(self, vertices):
+        self.verts = vertices
+        self.verts.append(vertices[0])
+        path = Path(self.verts, self.codes)
+        patch = patches.PathPatch(path, facecolor='orange', lw=2)
+        self.axes.add_patch(patch)
+        self.draw()
+
     def compute_initial_figure(self):
         time = np.arange(0.0, 3.0, 0.01)
         sin = np.sin(2*np.pi*time)

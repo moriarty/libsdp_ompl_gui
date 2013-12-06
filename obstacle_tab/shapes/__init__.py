@@ -1,0 +1,1 @@
+from ompl_gui.obstacle_tab.shapes.Square import Square
