@@ -18,11 +18,9 @@ class ObstacleWidget(QtGui.QWidget):
         super(ObstacleWidget, self).__init__()
         self.obstacle_type_label = QtGui.QLabel('Obstacle Shape')
         self.obstacle_type_select = QtGui.QComboBox()
-        self.obstacle_type_select.setEnabled(False)
+        self.obstacle_type_select.addItem("Square")
         
         self.obstacle_pose = Pose2DBox('Obstacle Centre')
-        self.obstacle_pose.posx.setEnabled(False)
-        self.obstacle_pose.posy.setEnabled(False)
         self.obstacle_pose.yaw.setEnabled(False)
 
         self.obstacle = self.obstacle_type_select

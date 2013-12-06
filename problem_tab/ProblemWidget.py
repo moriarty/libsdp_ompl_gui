@@ -21,8 +21,7 @@ class ProblemWidget(QtGui.QWidget):
         robot_type_label = QtGui.QLabel('Robot type')
         self.robot_type_select = QtGui.QComboBox()
         self.robot_type_select.addItem("K. Car 2D")
-        self.robot_type_select.setMaximumSize(200, 2000)
-
+        
         self.start_pose = Pose2DBox('Start pose')
         self.goal_pose = Pose2DBox('Goal pose')
         self.reset_button = QtGui.QPushButton('Reset')
