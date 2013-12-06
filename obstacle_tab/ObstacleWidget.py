@@ -21,6 +21,7 @@ class ObstacleWidget(QtGui.QWidget):
         self.obstacle_type_label = QtGui.QLabel('Obstacle Shape')
         self.obstacle_type_select = QtGui.QComboBox()
         self.obstacle_type_select.addItem("Square")
+        self.obstacle_type_select.addItem("None")
         
         self.obstacle = Square("Square")
 
