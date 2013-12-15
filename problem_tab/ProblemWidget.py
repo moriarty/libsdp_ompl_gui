@@ -57,6 +57,8 @@ class ProblemWidget(QtGui.QWidget):
         return self.start_pose.get_pose()
     def get_goal_pose(self):
         return self.goal_pose.get_pose()
+    def get_robot_type(self):
+        return str(self.robot_type_select.currentText())
 
     def start_pose_change(self, value):
         self.start_changed.emit(value)

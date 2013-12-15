@@ -91,3 +91,6 @@ class MainWidget(QtGui.QWidget):
 
     def get_goal_pose(self):
         return self.problem_widget.get_goal_pose()
+
+    def get_robot_type(self):
+        return self.problem_widget.get_robot_type()
