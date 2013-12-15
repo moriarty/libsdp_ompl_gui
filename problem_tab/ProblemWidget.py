@@ -27,6 +27,7 @@ class ProblemWidget(QtGui.QWidget):
         self.start_pose = Pose2DBox('Start pose')
         self.goal_pose = Pose2DBox('Goal pose')
         self.reset_button = QtGui.QPushButton('Reset')
+        self.reset()
 
         layout = QtGui.QGridLayout()
         layout.addWidget(robot_type_label, 0, 0,
@@ -47,9 +48,9 @@ class ProblemWidget(QtGui.QWidget):
         self.set_start_pose()
         self.set_goal_pose()
 
-    def set_start_pose(self, x=0.0, y=0.0, yaw=0.0):
+    def set_start_pose(self, x=-5.0, y=-5.0, yaw=0.0):
         self.start_pose.set_pose(x=x, y=y, yaw=yaw)
-    def set_goal_pose(self, x=0.0, y=0.0, yaw=0.0):
+    def set_goal_pose(self, x=5.0, y=5.0, yaw=0.0):
         self.goal_pose.set_pose(x=x, y=y, yaw=yaw)
 
     def get_start_pose(self):
