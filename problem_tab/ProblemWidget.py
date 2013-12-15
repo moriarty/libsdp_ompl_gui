@@ -20,7 +20,9 @@ class ProblemWidget(QtGui.QWidget):
         super(ProblemWidget, self).__init__()
         robot_type_label = QtGui.QLabel('Robot type')
         self.robot_type_select = QtGui.QComboBox()
-        self.robot_type_select.addItem("K. Car 2D")
+        self.robot_type_select.addItem("Kinematic Car 2D")
+        self.robot_type_select.addItem("Geometric 2D")
+        
         
         self.start_pose = Pose2DBox('Start pose')
         self.goal_pose = Pose2DBox('Goal pose')
