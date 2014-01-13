@@ -8,10 +8,6 @@
 # import statement
 from PyQt4 import QtCore, QtGui
 from PyQt4.QtCore import pyqtSignal as Signal
-from matplotlib.path import Path
-import numpy as np
-from Polygon.Shapes import Rectangle
-
 
 # Square class
 class Square(QtGui.QGroupBox):
