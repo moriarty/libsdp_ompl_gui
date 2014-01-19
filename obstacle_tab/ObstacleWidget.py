@@ -15,6 +15,8 @@ from .. import Pose2DBox
 # ObstacleWidget class
 
 class ObstacleWidget(QtGui.QWidget):
+    """ for setting a Square obstacel of variable size and position
+    """
     location_changed = Signal(list)
     def __init__(self):
         super(ObstacleWidget, self).__init__()
