@@ -12,7 +12,7 @@ from PyQt4.QtCore import pyqtSignal as Signal
 from .. import Pose2DBox
 
 class ProblemWidget(QtGui.QWidget):
-    """docstring for ProblemWidget"""
+    """class for selecting the robot type, start and goal pose"""
     start_changed = Signal(list)
     goal_changed = Signal(list)
 
