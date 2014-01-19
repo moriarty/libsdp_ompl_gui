@@ -12,6 +12,8 @@ import numpy as np
 
 # Pose2DBox class
 class Pose2DBox(QtGui.QGroupBox):
+    """This class helps in setting up the x, y positins and the yaw
+    """
     value_changed = Signal(list)
 
     def __init__(self, title):
