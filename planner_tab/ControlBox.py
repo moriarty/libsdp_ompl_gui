@@ -9,7 +9,7 @@
 from PyQt4 import QtCore, QtGui
 
 class ControlBox(QtGui.QGroupBox):
-    """docstring for ControlBox"""
+    """For changing the values of the planner parameters like time, propagation step size, control duration"""
     def __init__(self, title):
         super(ControlBox, self).__init__(title)
         

@@ -9,7 +9,7 @@
 from PyQt4 import QtGui
 
 class PlannersBox(QtGui.QGroupBox):
-    """docstring for PlannersBox"""
+    """This helps in selecting a list of planners. RRT is set as default"""
     def __init__(self, title):
         super(PlannersBox, self).__init__(title)
         

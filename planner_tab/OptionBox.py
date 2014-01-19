@@ -9,7 +9,7 @@
 from PyQt4 import QtCore, QtGui
 
 class OptionBox(QtGui.QGroupBox):
-    """docstring for OptionBox"""
+    """For changing the values of the planner parameters"""
     def __init__(self, title):
         super(OptionBox, self).__init__(title)
         
