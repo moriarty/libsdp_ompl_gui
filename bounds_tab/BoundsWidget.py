@@ -16,6 +16,9 @@ LOWER_BOUNDS = [-10.0, -10.0]
 # BoundsWidget class 
 
 class BoundsWidget(QtGui.QWidget):
+    """
+    This class helps in setting up the bound limit of the environment
+    """
     def __init__(self):
         super(BoundsWidget, self).__init__()
         self.bounds_high = BoundsBox('Upper bounds')
